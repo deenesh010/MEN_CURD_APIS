@@ -1,11 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const products = require("./routes/products");
+const user = require("./routes/user");
+const cart =require("./routes/cart")
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use("/products", products);
+app.use("/user", user);
+app.use("/cart",cart);
+
 
 app.get("/", (req, res) => {
   res.send("Hello");
@@ -17,8 +24,8 @@ mongoose
   )
   .then(() => {
     console.log("Connected to mongoDB");
-    app.listen(3000, () => {
-      console.log("server is running on port 3000");
+    app.listen(5000, () => {
+      console.log("server is running on port 5000");
     });
   })
   .catch((error) => {
