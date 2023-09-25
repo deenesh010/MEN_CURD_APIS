@@ -2,7 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const products = require("./routes/products");
 const user = require("./routes/user");
-const cart =require("./routes/cart")
+const cart = require("./routes/cart");
+const admin = require("./routes/admin");
 const cors = require("cors");
 
 const app = express();
@@ -11,12 +12,12 @@ app.use(cors());
 app.use(express.json());
 app.use("/products", products);
 app.use("/user", user);
-app.use("/cart",cart);
+app.use("/cart", cart);
+app.use("/admin", admin);
 
-
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello");
+// });
 
 mongoose
   .connect(

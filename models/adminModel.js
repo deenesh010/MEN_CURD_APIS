@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const adminSchema = mongoose.Schema({
   name: {
     type: String,
   },
@@ -15,6 +15,6 @@ const userSchema = new mongoose.Schema({
   islogged: Boolean,
 });
 
-const user = mongoose.model("user", userSchema);
+const admin = mongoose.model("admin", adminSchema);
 
-module.exports = user;
+module.exports = admin;
